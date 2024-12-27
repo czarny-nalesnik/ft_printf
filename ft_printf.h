@@ -13,8 +13,9 @@
 #ifndef FT_PRINTF_H
 # define FT_PRINTF_H
 
-# include <stdio.h>
+# include <stdarg.h>
 
-int		ft_printf(const char *format, ...);
+int	ft_printf(const char *format, ...);
+int	print_format(const char c, va_list ap);
 
 #endif
