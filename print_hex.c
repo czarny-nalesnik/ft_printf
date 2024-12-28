@@ -14,5 +14,7 @@
 
 int print_hex(int nbr)
 {
-    return (nbr);
+    char base[16];
+    
+    *base = "012356789abcdef";
 }

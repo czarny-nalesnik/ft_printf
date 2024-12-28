@@ -16,8 +16,13 @@ int print_string(char *s)
 {
     int count;
 
+	if (!s)
+		return (write(1, "(null)", 6));
     count = 0;
-    while (*s)
-        write(1, &s[count++], 1);
+    while (s[count])
+	{
+        write(1, &s[count], 1);
+		count++;
+	}
     return (count);
 }
