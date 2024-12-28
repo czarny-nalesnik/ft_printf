@@ -18,16 +18,18 @@ int	print_format(char specifier, va_list ap)
 
 	count = 0;
 	if (specifier == 'c')
-		print_char();
+		count = print_char(va_arg(ap, int));
 	else if (specifier == 's')
-		print_string();
+		count = print_string(va_arg(ap, char*));
 	else if (specifier == 'p')
-		print_vptr();
-	else if (specifier == 'd' || specifier == 'i' || specifier == 'u')
-		print_decimal();
+		count = print_vptr(va_arg(ap, void*));
+	else if (specifier == 'd' || specifier == 'i')
+		count = print_decimal(va_arg(ap, int));
+	else if (specifier == 'u')
+		count = print_uint(va_arg(ap, unsigned int));
 	else if (specifier == 'x' || specifier == 'X')
-		print_hex();
+		count = print_hex(va_arg(ap, int));
 	else if (specifier == '%')
-		print_char('%');
+		count = print_char('%');
 	return (count);
 }
