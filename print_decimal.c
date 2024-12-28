@@ -14,7 +14,7 @@
 
 int print_decimal(int nbr)
 {
-    char    result;
+    char    *result;
     
     result = ft_itoa(nbr);
     return (print_string(result));

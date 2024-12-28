@@ -14,11 +14,5 @@
 
 int print_hex(int nbr)
 {
-    char    base[16];
-
-    base = "0123456789abcdef";
-    while (nbr >= 16)
-    {
-        
-    }
+    return (nbr);
 }

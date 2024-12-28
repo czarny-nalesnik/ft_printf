@@ -17,7 +17,7 @@ int print_vptr(void *ptr)
     if (!ptr)
     {
         write(1, "0x0", 3);
-        return;
+        return (0);
     }
-    return (1);
+    return (0);
 }

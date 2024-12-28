@@ -18,6 +18,6 @@ int print_string(char *s)
 
     count = 0;
     while (*s)
-        write(1, s[count++], 1);
+        write(1, &s[count++], 1);
     return (count);
 }

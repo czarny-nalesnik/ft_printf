@@ -1,5 +1,6 @@
 NAME = libftprintf.a
-SRCS = ft_printf.c print_format.c
+SRCS = ft_printf.c print_format.c print_char.c print_string.c \
+print_vptr.c print_decimal.c print_uint.c print_hex.c
 OBJS = $(SRCS:.c=.o)
 CC = cc
 AR = ar rc
