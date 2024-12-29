@@ -12,8 +12,8 @@
 #include "libft.h"
 #include "ft_printf.h"
 
-int print_char(int nbr)
+int	print_char(int nbr)
 {
-    write(1, &nbr, 1);
-    return (1);
+	write(1, &nbr, 1);
+	return (1);
 }

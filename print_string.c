@@ -12,17 +12,17 @@
 #include "libft.h"
 #include "ft_printf.h"
 
-int print_string(char *s)
+int	print_string(char *s)
 {
-    int count;
+	int	count;
 
 	if (!s)
 		return (write(1, "(null)", 6));
-    count = 0;
-    while (s[count])
+	count = 0;
+	while (s[count])
 	{
-        write(1, &s[count], 1);
+		write(1, &s[count], 1);
 		count++;
 	}
-    return (count);
+	return (count);
 }

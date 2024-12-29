@@ -12,11 +12,53 @@
 #include "libft.h"
 #include "ft_printf.h"
 
-static void reverse_string(char *str)
+static char	*ft_strtoupper(char *str)
+{
+	int	i;
+
+	i = 0;
+	while (str[i])
+	{
+		if (str[i] >= 'a' && str[i] <= 'z')
+			str[i] -= 32;
+		i++;
+	}
+	return (str);
+}
+
+static char	*ft_convert(unsigned int nbr)
+{
+	char	*base;
+	char	buffer[64];
+	char	*result;
+	int		i;
+
+	base = "0123456789abcdef";
+	i = 0;
+	while (nbr > 0)
+	{
+		buffer[i++] = base[nbr % 16];
+		nbr /= 16;
+	}
+	buffer[i] = '\0';
+	result = malloc(ft_strlen(buffer) + 1);
+	if (!result)
+		return (NULL);
+	i = 0;
+	while (buffer[i])
+	{
+		result[i] = buffer[i];
+		i++;
+	}
+	result[i] = '\0';
+	return (result);
+}
+
+static void	reverse_string(char *str)
 {
 	int		i;
 	int		len;
-	char 	temp;
+	char	temp;
 
 	i = 0;
 	len = ft_strlen(str);
@@ -29,31 +71,29 @@ static void reverse_string(char *str)
 	}
 }
 
-int print_hex(int nbr)
+int	print_hex(unsigned int nbr, char specifier)
 {
-	char	base[16] = "0123456789abcdef";
-	char	result[64];
-	int		i;
-	if (nbr == -2147483648)
-	{
-		ft_putstr_fd("80000000", 1);
-		return (8);
-	}
+	char			*result;
+	int				length;
+	long			num;
+
+	num = (long) nbr;
 	if (nbr == 0)
 	{
 		write(1, "0", 1);
 		return (1);
 	}
-	i = 0;
-	if (nbr < 0)
-		nbr = -nbr;
-	while (nbr > 0)
+	if (num == LONG_MIN)
 	{
-		result[i++] = base[nbr % 16];
-		nbr /= 16;
+		ft_putstr_fd("-9223372036854775808", 1);
+		return (19);
 	}
-	result[i] = '\0';
+	result = ft_convert(nbr);
 	reverse_string(result);
+	if (specifier == 'X')
+		ft_strtoupper(result);
 	ft_putstr_fd(result, 1);
-	return (ft_strlen(result));
+	length = ft_strlen(result);
+	free(result);
+	return (length);
 }

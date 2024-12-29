@@ -22,6 +22,6 @@ int	print_string(char *s);
 int	print_vptr(void *ptr);
 int	print_decimal(int nbr);
 int	print_uint(unsigned int nbr);
-int	print_hex(int nbr);
+int	print_hex(unsigned int nbr, char specifier);
 
 #endif

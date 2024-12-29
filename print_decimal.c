@@ -12,10 +12,14 @@
 #include "libft.h"
 #include "ft_printf.h"
 
-int print_decimal(int nbr)
+int	print_decimal(int nbr)
 {
-    char    *result;
-    
-    result = ft_itoa(nbr);
-    return (print_string(result));
+	char	*result;
+	int		len;
+
+	result = ft_itoa(nbr);
+	ft_putstr_fd(result, 1);
+	len = ft_strlen(result);
+	free(result);
+	return (len);
 }
