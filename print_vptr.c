@@ -71,11 +71,11 @@ int	print_vptr(void *ptr)
 	char			*result;
 	int				length;
 
-    if (ptr == NULL)
-    {
-        ft_putstr_fd("(nil)", 1);
-        return (5);
-    }
+	if (ptr == NULL)
+	{
+		ft_putstr_fd("(nil)", 1);
+		return (5);
+	}
 	addr = (unsigned long) ptr;
 	result = ft_convert(addr);
 	length = ft_strlen(result);
